@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejemplo de alerts personalizados</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<script type="text/javascript" src="alert.js"></script>
+<script type="text/javascript" src="script.js"></script>
+
+<div id="container">
+	<div style="text-align:center; margin-bottom: 2em">
+		<h2>Mensajes emergentes personalizados</h2>
+		Por <a href="https://bygdle.xyz">Bygdle</a>
+	</div>
+
+	<ul>
+		<li>Haz clic <a id="open-alert">aquí</a> para abrir un mensaje de alerta.</li>
+		<li>Haz clic <a id="open-confirm">aquí</a> para abrir un mensaje de confirmación
+			<span id="confirm-response"></span>
+		</li>
+		<li>Haz click <a id="open-prompt">aquí</a> para abrir un cuadro de texto emergente
+			<span id="prompt-response"></span>
+		</li>
+	</ul>
+	<em>(Abre la consola de desarrollador del navegador para ver cuándo se ejecutan los eventos)</em>
+
+</div>
+
+
+
+<!--Recuadros de los mensajes de alerta personalizados-->
+
+<div id="message-container" style="display: none">
+	<div id="alert-box" style="display: none">
+		<!--Caja de los mensajes de alerta-->
+
+		<div class="content">
+			<!--El contenido del mensaje-->
+		</div>
+		<div class="control">
+			<!--Los botones-->
+			<button class="accept">Aceptar</button>
+		</div>
+
+	</div>
+
+	<div id="confirm-box" style="display: none">
+		<!--Caja de los mensajes de confirmación-->
+
+		<div class="content">
+			<!--El contenido del mensaje-->
+		</div>
+		<div class="control">
+			<!--Los botones-->
+			<button class="accept">Aceptar</button>
+			<button class="cancel">Cancelar</button>
+		</div>
+
+	</div>
+
+	<div id="prompt-box" style="display: none">
+		<!--Cajas de los mensajes de caja de texto-->
+
+		<div class="content">
+			<!--El contenido del mensaje-->
+		</div>
+		<div class="control">
+			<!--El cuadro de texto-->
+			<input type="text" class="textbox">
+		</div>
+		<div class="control">
+			<!--Los botones-->
+			<button class="accept">Aceptar</button>
+		</div>
+
+	</div>
+</div>
+
+
+</body>
+</html>

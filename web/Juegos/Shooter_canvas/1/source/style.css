@@ -1,0 +1,36 @@
+html, body {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+body {
+	margin: 0;
+	font:13pt Calibri;
+	color: white;
+
+	background-color: #387AFF;
+
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -o-flex;
+	display: flex;
+
+	-webkit-align-items: center;
+	-moz-align-items: center;
+	-o-align-items: center;
+	align-items: center;
+
+	-webkit-justify-content: center;
+	-moz-justify-content: center;
+	-o-justify-content: center;
+	justify-content: center;
+
+	-webkit-flex-direction: column;
+	-moz-flex-direction: column;
+	-o-flex-direction: column;
+	flex-direction: column;
+}
+#game {
+	border:1px solid black;
+	background-image: url(sprites/background.png);
+}

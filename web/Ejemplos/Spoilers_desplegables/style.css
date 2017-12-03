@@ -1,0 +1,32 @@
+body {
+    font:13pt Calibri;
+    color: #333;
+}
+.spoiler-box {
+    overflow: hidden;
+
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    -o-border-radius: 16px;
+    border-radius: 16px;
+
+    -webkit-box-shadow: 0 0 4px #AAA;
+    -moz-box-shadow: 0 0 4px #AAA;
+    -o-box-shadow: 0 0 4px #AAA;
+    box-shadow: 0 0 4px #AAA;
+}
+.spoiler-box .spoiler-title {
+    background-color: green;
+    color: white;
+    font-weight: bold;
+    padding:0.4em 0.6em;
+}
+.spoiler-box .spoiler-title:hover {
+    cursor: pointer;
+}
+.spoiler-box .spoiler-content {
+    background-color: #EEE;
+    padding:0.4em 0.6em;
+
+    display: none;
+}

@@ -1,0 +1,26 @@
+/*
+ESTE PROYECTO HA SIDO REALIZADO POR BYGDLE, EN WWW.BYGDLE.XYZ
+*/
+
+* {box-sizing: border-box;}
+body {
+	margin:0;
+	font:13pt Calibri;
+	color: #333;
+}
+h1 {
+	margin:0;
+	padding:0.5em;
+}
+#game {
+	border:1px solid #333;
+	margin:3em;
+	padding: 1em;
+}
+#game .image-box {
+	display: inline-block;
+	border:1px solid #666;
+}
+#game .image-box:hover {
+	background-color: #DDD;
+}

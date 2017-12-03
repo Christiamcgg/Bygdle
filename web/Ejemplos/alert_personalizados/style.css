@@ -1,0 +1,81 @@
+body {
+	margin:0;
+	font: 13pt Helvetica;
+	color: #333;
+
+	background-color: #EEE;
+}
+#container {
+
+	margin:2em;
+	padding:1em;
+	box-sizing: border-box;
+
+	background-color: white;
+
+	-webkit-box-shadow: 4px 0 4px #CCC;
+	-moz-box-shadow: 4px 0 4px #CCC;
+	-o-box-shadow: 4px 0 4px #CCC;
+	box-shadow: 4px 0 4px #CCC;
+}
+a {
+	color: #3196F5;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline dashed;
+	cursor: pointer;
+}
+
+
+/*EL ESTILO DE LOS CONTENEDORES*/
+#message-container {
+
+	/*Lo mantenemos fijo en la panalla, y que ocupe todo el espacio*/
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+
+	z-index: 1000000; /*Que esté encima de todo (en teoría)*/
+
+	/*Color oscuro semi-transparente*/
+	background-color: rgba(0, 0, 0, 0.8);
+
+	/*Será un flexbox para centrar la alerta*/
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -o-flex;
+	display: flex;
+
+	/*Centramos la alerta*/
+	-webkit-align-items: center;
+	-moz-align-items: center;
+	-o-align-items: center;
+	align-items: center;
+
+	-webkit-justify-content: center;
+	-moz-justify-content: center;
+	justify-content: center;
+	justify-content: center;
+
+	/*Para que los DIVs se ubiquen uno bajo el otro*/
+	-webkit-flex-direction: column;
+	-moz-flex-direction: column;
+	-o-flex-direction: column;
+	flex-direction: column;
+}
+#alert-box, #confirm-box, #prompt-box {
+	display: inline-block;
+
+	background-color: #F5F5F5;
+	border:1px solid #CCC;
+}
+.content, .control {
+	padding:0.6em;
+}
+.control {
+	border-top:1px solid #CCC;
+	text-align: center;
+}
