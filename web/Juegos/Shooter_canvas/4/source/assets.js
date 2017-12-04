@@ -23,7 +23,7 @@ function draw_sprite(render, src, index, x, y) {
     );
 
 }
-
+//-------------ENTIDADES-------------
 function Entity(sprite, container) {
 
     this.container = container;
@@ -63,3 +63,34 @@ function instance_create(x, y, entity) {
     instance.event_create();
     return instance;
 }
+
+
+//---------CONTROL DE TECLADO-----------
+var keyboard = {
+    map: {},
+    start: function() {
+
+        window.addEventListener('keydown', function(ev) {
+            var key = ev.which || ev.keyCode;
+            keyboard.map[key] = true;
+        });
+
+        window.addEventListener('keyup', function(ev) {
+            var key = ev.which || ev.keyCode;
+            keyboard.map[key] = false;
+        });
+
+    },
+    check: function(key) {
+        return keyboard.map[key] == true; 
+    }
+};
+const vk = {
+    left: 37,
+    up: 38, 
+    right: 39, 
+    down: 40,
+    enter: 13,
+    space: 32,
+    tab: 9
+};
