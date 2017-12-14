@@ -111,9 +111,3 @@ Geometry.circle.prototype.collision_rectangle = function(rectangle) {
     }
     return rectangle.collision_circle(this);
 }
-
-
-var a = new Geometry.rectangle(0, 0, 1, 1);
-var b = new Geometry.circle(2, 2, Math.sqrt(2)+ 1e-5);
-
-console.log(b.collision_rectangle(a))
