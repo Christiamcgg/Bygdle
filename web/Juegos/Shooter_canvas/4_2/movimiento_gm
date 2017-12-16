@@ -1,0 +1,60 @@
+[size=8pt]Cada vez me alejo más de GameMaker, así que comenzaré a intentar dejar la mayor cantidad de aportes posibles sobre lo poco que sé de este software antes de dejarlo por completo... Aquí uno de los primeros.[/size]
+
+Este artículo es una adaptación de algunas de las partes de una serie de entradas ([url=https://bygdle.xyz/blog/category/desarrollo-web/juegos-e-interactivo/creando-un-shooter-en-html5/]Creando un Shooter en HTML5[/url]) que estoy escribiendo en mi blog, pero traídas al GM.
+[hr]
+
+[center][size=24pt][b]Introducción[/b][/size][/center]
+
+[center][b]Empecemos dando un ejemplo...[/b]
+Juega unos segundos estos juegos:
+[i](se mueven con las flechas del teclado).[/i]
+[url=https://bygdle.xyz/code/web/Juegos/Shooter_canvas/4_2/index.html]Clic para ir al primero[/url].
+[url=https://bygdle.xyz/code/web/Juegos/Shooter_canvas/4/index.html]Clic para ir al segundo[/url].
+
+¿Has visto algo diferente en ellos?
+[i]-¿no?... ¡pues sigue jugándolos![/i]
+
+[b]En efecto[/b] [i](o en NO efecto, si no te diste cuenta :v)[/i], el segundo[/center][center]juego tiene un sistema de movimiento mucho más fluído que el primero. 
+[/center]
+
+
+[center][b][size=18pt]Normal VS [i]h[/i]íper[i]u[/i]ltra[i]s[/i]úpermejorado[/size][/b][/center]
+
+
+En el primero [b]no puedes[/b] presionar dos teclas opuestas[i] (arriba y abajo, o izquierda y derecha)[/i] de forma simultánea, porque si lo haces el jugador se queda atascado. No sólo eso, sino que si te mueves en diagonal presionado dos teclas perpendiculares (arriba-izquierda, abajo-derecha, etc.), cojes más velocidad que si te movieras en vertical u horizontal...
+
+
+¿Te trae algunos recuerdos? [b]PUES SÍ[/b], porque es un sistema de movimiento que por lo menos en este foro es el más común entre la gente. [b]Y NO ES PARA MÁS[/b]... En GM, este sistema se obtiene por el típico codiguito de:
+[gml]
+if(keyboard_check(vk_left))
+    x -= vel;
+if(keyboard_check(vk_right))
+    x += vel;
+//... y bla bla bla bla bla, ya me di a entender, ¿vale?
+[/gml]
+
+
+[b]El segundo[/b] ejemplo corrige todos estos problemas, y esta primera parte del artículo está orientada a llegar a él. Pero primero...
+
+
+[center][b][size=18pt]¿Por qué funciona así?[/size][/b][/center]
+Intentar corregir un error sin tener ni pajolera idea de por qué sucede es dar saltos de ciego [size=8pt][i](con todo respeto a los ciegos :v)[/i][/size] frente al código: o nos estrellamos o como mínimo nos enredamos. Así que por eso hago esta parte, para explicar los problemas que este sistema tiene.
+
+Comencemos por el principio: Hemos de visualizar el movimiento como más que simples numeritos, como algo más útil, como [b]vectores[/b].
+[spoiler=No me abras si sabes qué es eso]
+[spoiler=QUE VA EN SERIO EH, NO ME ABRAS SI SABES QUE ES UN VECTOR]
+[spoiler=Qué hijo de... da igual...]
+Una penosa pero rápida explicación:
+
+básicamente un vector es una "medida" que se compone de un valor y un ángulo.
+[img width=300]https://dl.dropbox.com/s/t2klqeenkmn89yn/vector.gif?dl=0[/img]
+Se pueden realizar muchas operaciones con vectores, y éstos además están muy unidos con la trigonometría (usaremos ambos), así que un una referencia, que el artículo no va de esto.
+
+http://www.profesorenlinea.cl/matematica/Vectores.html
+[/spoiler][/spoiler][/spoiler]
+
+[center]Veamos esta imagen:
+[img]https://image.prntscr.com/image/L68I6KXPRJuzS-_ZeM0_oQ.png[/img]
+[/center]
+
+Al presionar alguna tecla, se "activa" el vector que representa el movimiento correspondiente (arriba, abajo, izquierda o derecha). Sin embargo, nuestro código no tiene (ni debería tener) algo que impida la "activación" de dos vectores de forma simultánea; esto da lugar a
